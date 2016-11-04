@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data:; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <script src="components/loader.js"></script>
+  <script src="lib/onsenui/js/onsenui.min.js"></script>
+
+  <link rel="stylesheet" href="components/loader.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>
+    ons.ready(function() {
+      console.log("Onsen UI is ready!");
+    });
+
+    document.addEventListener('show', function(event) {
+      var page = event.target;
+      var titleElement = document.querySelector('#toolbar-title');
+
+      if (page.matches('#first-page')) {
+        titleElement.innerHTML = '音リスト';
+      } else if (page.matches('#second-page')) {
+        titleElement.innerHTML = 'My app - SNS';
+      } else if (page.matches('#third-page')) {
+        titleElement.innerHTML = 'My app - たまひよ';
+      } else if (page.matches('#fourth-page')) {
+        titleElement.innerHTML = 'My app - My Page';
+      }
+      
+    });
+    
+    //たまひよnetブラウザ表示
+    function kakunin() {
+    link = "Yahoo!Japan";
+    href = "http://www.yahoo.co.jp/";
+    }
+
+  ret = confirm(link + "へ飛びます。宜しいですか？");
+  if (ret == true){
+    location.href = href;
+  }
+  </script>
+</head>
+<body>
+  <ons-page>
+    <ons-toolbar>
+      <div class="center" id="toolbar-title"></div>
+    </ons-toolbar>
+    <ons-tabbar position="auto">
+      <ons-tab label="音" page="tab1.html" active>
+      </ons-tab>
+      <ons-tab label="SNS" page="tab2.html">
+      </ons-tab>
+      <ons-tab label="たまひよ" page="tab2.html">
+      </ons-tab>
+      <ons-tab label="My Page" page="tab4.html">
+      </ons-tab>
+    </ons-tabbar>
+  </ons-page>
+
+  <ons-template id="tab1.html">
+    <ons-page id="first-page">
+      <p style="text-align: center;">
+        イライラ音ページ
+      </p>
+      <ons-tabbar position="top">
+  <ons-tab label="音" page="sound1.html" active>
+  </ons-tab>
+  <ons-tab label="お気に入り" page="sound2.html">
+  </ons-tab>
+  <ons-tab label="オリジナル音" page="sound3.html">
+  </ons-tab>
+</ons-tabbar>
+
+<ons-template id="sound1.html">
+  <ons-page>
+    <ons-toolbar>
+      <div class="center">提供音のリストページ</div>
+    </ons-toolbar>
+
+    <p style="text-align: center;">
+      提供音のリストページ
+    </p>
+  </ons-page>
+</ons-template>
+
+<ons-template id="sound2.html">
+  <ons-page>
+    <ons-toolbar>
+      <div class="center">お気に入り音のリストページ</div>
+    </ons-toolbar>
+
+    <p style="text-align: center;">
+      お気に入り音のリストページ
+    </p>
+  </ons-page>
+</ons-template>
+
+<ons-template id="sound3.html">
+  <ons-page>
+    <ons-toolbar>
+      <div class="center">オリジナル音のリストページ</div>
+    </ons-toolbar>
+
+    <p style="text-align: center;">
+      オリジナル音のリストページ
+    </p>
+  </ons-page>
+</ons-template>
+      </ons-page>
+  </ons-template>
+
+  <ons-template id="tab2.html">
+    <ons-page id="second-page">
+      <p style="text-align: center;">
+        SNSページ
+        </p>
+    </ons-page>
+  </ons-template>
+  
+  <ons-template id="tab3.html">
+    <ons-page id="third-page">
+      <p style="text-align: center;">
+        たまひよnetサイト表示ページ
+      </p>
+      <ons-button modifier="large" onClick="window.open('http://tamahiyo.jp/qa/detail/10001831.html')">たまひよnetの夜泣き情報</ons-button>
+    </ons-page>
+  </ons-template>
+  
+  <ons-template id="tab4.html">
+    <ons-page id="fourth-page">
+      <p style="text-align: center;">
+        MyPage
+      </p>
+    </ons-page>
+  </ons-template>
+  
+</body>
+</html>
